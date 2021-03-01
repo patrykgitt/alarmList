@@ -1,15 +1,18 @@
 export class Alarm {
   constructor(
-    taskVal: string,
+    descriptionVal: string,
     approvedVal: boolean = false,
-    goingVal: boolean = true
+    goingVal: boolean = true,
+    archivedVal: boolean = false
   ) {
-    this.task = taskVal;
+    this.description = descriptionVal;
     this.approved = approvedVal;
     this.going = goingVal;
+    this.archived = archivedVal;
   }
 
-  task: string;
+  description: string;
   approved: boolean;
   going: boolean;
+  archived: boolean;
 }

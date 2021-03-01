@@ -11,7 +11,7 @@ export class AppComponent {
   private list = new AlarmMgnt("Alarm", [
     new Alarm("J6 axis overspeed", true, true),
     new Alarm("Undervoltage error", true),
-    new Alarm("Communication error"),
+    new Alarm("Communication error", true, false, true),
   ]);  
   
   get username(): string {
@@ -23,7 +23,7 @@ export class AppComponent {
   }
 
   get items(): readonly Alarm[] {
-    return this.list.items.filter(item => this.showApproved || !item.approved);
+    return this.list.items.filter(item => this.showArchived || !item.archived);
   }
 
   addItem(newItem) {
@@ -32,5 +32,5 @@ export class AppComponent {
     }
   }
 
-  showApproved: boolean = false;
+  showArchived: boolean = false;
 }

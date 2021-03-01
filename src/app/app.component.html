@@ -24,18 +24,25 @@
       <tr>
         <th>#</th>
         <th>Description</th>
+        <th>Ongoing</th>
         <th>Approved</th>
+        <th>Archived</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let item of items; let i = index">
         <td>{{ i + 1 }}</td>
-        <td>{{ item.task }}</td>
-        <td><input type="checkbox" [(ngModel)]="item.approved" /></td>
-        <!-- <td [ngSwitch]="item.complete"> 
+        <td>{{ item.description }}</td>
+        <td [ngSwitch]="item.going"> 
                 <span *ngSwitchCase="true">Yes</span>
                 <span *ngSwitchDefault>No</span>
-            </td> -->
+        </td>
+        <td [ngSwitch]="item.approved"> 
+                <span *ngSwitchCase="true">Yes</span>
+                <span *ngSwitchDefault>No</span>
+        </td>  
+        <td><input type="checkbox" [(ngModel)]="item.archived" /></td>
+        
       </tr>
     </tbody>
   </table>
@@ -46,10 +53,10 @@
     <input
       class="form-check-input"
       type="checkbox"
-      [(ngModel)]="showApproved"
+      [(ngModel)]="showArchived"
     />
     <label class="form-check-label" for="defaultCheck1">
-      Show Completed Tasks
+      Show Archived Alarms
     </label>
   </div>
 </div>
