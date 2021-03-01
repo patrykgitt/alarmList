@@ -19,6 +19,7 @@ export class AppComponent {
   }
 
   get itemCount(): number {
+    console.log(this.items);
     return this.items.length;
   }
 

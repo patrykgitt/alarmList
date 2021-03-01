@@ -1,7 +1,7 @@
 <h3 class="bg-primary text-center text-white p-2">
   {{ username }} list
   <h6 class="mt-1">
-    {{ itemCount }} {{ showApproved ? "" : "Incomplete" }} Items
+    {{ itemCount }} {{ showArchived ? "" : "Incomplete" }} Items
   </h6>
 </h3>
 
@@ -33,16 +33,15 @@
       <tr *ngFor="let item of items; let i = index">
         <td>{{ i + 1 }}</td>
         <td>{{ item.description }}</td>
-        <td [ngSwitch]="item.going"> 
-                <span *ngSwitchCase="true">Yes</span>
-                <span *ngSwitchDefault>No</span>
+        <td [ngSwitch]="item.going">
+          <span *ngSwitchCase="true">Yes</span>
+          <span *ngSwitchDefault>No</span>
         </td>
-        <td [ngSwitch]="item.approved"> 
-                <span *ngSwitchCase="true">Yes</span>
-                <span *ngSwitchDefault>No</span>
-        </td>  
+        <td [ngSwitch]="item.approved">
+          <span *ngSwitchCase="true">Yes</span>
+          <span *ngSwitchDefault>No</span>
+        </td>
         <td><input type="checkbox" [(ngModel)]="item.archived" /></td>
-        
       </tr>
     </tbody>
   </table>
