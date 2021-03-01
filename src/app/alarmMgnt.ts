@@ -1,16 +1,16 @@
 import { Alarm } from "./alarm";
 
-export class TodoList {
+export class AlarmMgnt {
     
-    constructor(public user: string, private todoItems: Alarm[] = []) {
+    constructor(public listName: string, private alarms: Alarm[] = []) {
         // no statements required
     }
 
     get items(): readonly Alarm[]  { 
-        return this.todoItems;
+        return this.alarms;
     }
 
-    addItem(task: string) {
-        this.todoItems.push(new Alarm(task));
+    addItem(alarm: string) {
+        this.alarms.push(new Alarm(alarm));
     }
 }
