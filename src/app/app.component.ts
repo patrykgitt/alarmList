@@ -8,10 +8,11 @@ import { AlarmMgnt } from "./alarmMgnt";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  private currDate = new Date();
   private list = new AlarmMgnt("Alarm", [
-    new Alarm("J6 axis overspeed", true, true),
-    new Alarm("Undervoltage error", true),
-    new Alarm("Communication error", true, false, true),
+    new Alarm("J6 axis overspeed", this.currDate, true, true),
+    new Alarm("Undervoltage error", this.currDate, true),
+    new Alarm("Communication error", this.currDate, true, false, true),
   ]);  
   
   get username(): string {
